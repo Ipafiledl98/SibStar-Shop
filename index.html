@@ -35,16 +35,31 @@
             border-radius: 8px;
             cursor: pointer;
         }
-        .button-red {
-            background-color: #d9534f;
+        /* Button for installing Scarlet (top red button) */
+        .button-install-scarlet {
+            background-color: #D9534F; /* Set exact color here */
         }
-        .button-blue {
-            background-color: #5bc0de;
+        /* Button for installing E-Sign (top blue button) */
+        .button-install-esign {
+            background-color: #5BC0DE; /* Set exact color here */
         }
+        /* Button for adding Repo to Scarlet (bottom red button) */
+        .button-repo-scarlet {
+            background-color: #C9302C; /* Set exact color here */
+        }
+        /* Button for adding Repo to E-Sign (bottom blue button) */
+        .button-repo-esign {
+            background-color: #337AB7; /* Set exact color here */
+        }
+        /* Style for warning text */
         .warning {
             font-size: 14px;
-            color: yellow;
+            color: white; /* Set white for the text */
             margin-top: 20px;
+        }
+        /* Style for the yellow warning symbol */
+        .warning-symbol {
+            color: yellow; /* Only the warning symbol in yellow */
         }
     </style>
 </head>
@@ -56,10 +71,10 @@
         <h1>Scarlet Shop</h1>
 
         <!-- Install Scarlet button link goes here -->
-        <button class="button button-red" onclick="window.location.href='PLACE_SCARLET_INSTALL_LINK_HERE';">نصب اسکارلت</button>
+        <button class="button button-install-scarlet" onclick="window.location.href='PLACE_SCARLET_INSTALL_LINK_HERE';">نصب اسکارلت</button>
         
         <!-- Install E-Sign button link goes here -->
-        <button class="button button-blue" onclick="window.location.href='PLACE_ESIGN_INSTALL_LINK_HERE';">نصب ایساین</button>
+        <button class="button button-install-esign" onclick="window.location.href='PLACE_ESIGN_INSTALL_LINK_HERE';">نصب ایساین</button>
 
         <!-- Scarlet icon image link goes here -->
         <img src="PLACE_SCARLET_ICON_LINK_HERE" alt="Scarlet Icon" class="icon">
@@ -68,12 +83,13 @@
         <img src="PLACE_ESIGN_ICON_LINK_HERE" alt="E-Sign Icon" class="icon">
 
         <!-- Add Repo to Scarlet button link goes here -->
-        <button class="button button-red" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
+        <button class="button button-repo-scarlet" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
         
         <!-- Add Repo to E-Sign button link goes here -->
-        <button class="button button-blue" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
+        <button class="button button-repo-esign" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
 
-        <p class="warning">⚠ رپو ها را برای دیگران ارسال نکنید و بدون فیلترشکن از رپو ها استفاده کنید</p>
+        <!-- Warning text with yellow symbol -->
+        <p class="warning"><span class="warning-symbol">⚠</span> رپو ها را برای دیگران ارسال نکنید و بدون فیلترشکن از رپو ها استفاده کنید</p>
     </div>
 
 </body>
