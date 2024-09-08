@@ -21,13 +21,13 @@
             border-radius: 50%;
         }
         .icon {
-            width: 30px;
+            width: 75%; /* Set width equal to button width */
             margin-left: 10px;
-            vertical-align: middle; /* Align icon with button text */
+            vertical-align: middle;
         }
         .button {
             display: inline-block;
-            width: 75%;
+            width: 75%; /* Set button width */
             padding: 15px;
             margin: 10px 0;
             color: white;
@@ -35,6 +35,9 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
+        }
+        .button-large {
+            padding: 45px 15px; /* Larger padding to match total size of top buttons + icons */
         }
         .icon-container {
             display: flex;
@@ -49,23 +52,23 @@
         .button-install-esign {
             background-color: #4682B4; /* Dark blue */
         }
-        /* Add Repo to Scarlet Button: Lighter Color */
+        /* Add Repo to Scarlet Button: Slightly Bold Color */
         .button-repo-scarlet {
-            background-color: #F08080; /* Light red */
+            background-color: #CD5C5C; /* Medium red */
         }
-        /* Add Repo to E-Sign Button: Lighter Color */
+        /* Add Repo to E-Sign Button: Slightly Bold Color */
         .button-repo-esign {
-            background-color: #ADD8E6; /* Light blue */
+            background-color: #87CEFA; /* Medium light blue */
         }
         /* Style for warning text */
         .warning {
-            font-size: 14px;
-            color: white; /* Set white for the text */
+            font-size: 18px; /* Larger font for the warning */
+            color: white;
             margin-top: 20px;
         }
         /* Style for the yellow warning symbol */
         .warning-symbol {
-            color: yellow; /* Only the warning symbol in yellow */
+            color: yellow;
         }
     </style>
 </head>
@@ -89,10 +92,10 @@
         </div>
 
         <!-- Add Repo to Scarlet button link goes here -->
-        <button class="button button-repo-scarlet" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
+        <button class="button button-repo-scarlet button-large" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
         
         <!-- Add Repo to E-Sign button link goes here -->
-        <button class="button button-repo-esign" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
+        <button class="button button-repo-esign button-large" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
 
         <!-- Warning text with yellow symbol -->
         <p class="warning"><span class="warning-symbol">⚠</span> رپو ها را برای دیگران ارسال نکنید و بدون فیلترشکن از رپو ها استفاده کنید</p>
