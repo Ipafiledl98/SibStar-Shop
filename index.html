@@ -10,6 +10,8 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            position: relative;
+            min-height: 100vh;
         }
         .container {
             max-width: 400px;
@@ -28,7 +30,7 @@
         .button {
             display: inline-block;
             padding: 15px;
-            margin: 5px 0; /* Reduce margin between buttons to bring them closer */
+            margin: 5px 0;
             color: white;
             font-size: 18px;
             border: none;
@@ -39,41 +41,47 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px; /* Reduce margin between button groups */
+            margin-bottom: 10px;
         }
         /* Install Scarlet Button */
         .button-install-scarlet {
             background-color: #B22222;
-            width: calc(75% - 50px - 10px); /* Adjust width to match button and icon combined */
+            width: calc(75% - 50px - 10px);
         }
         /* Install E-Sign Button */
         .button-install-esign {
             background-color: #4682B4;
-            width: calc(75% - 50px - 10px); /* Adjust width to match button and icon combined */
+            width: calc(75% - 50px - 10px);
+        }
+        /* Add Repo to Scarlet Button */
+        .button-repo-scarlet,
+        .button-repo-esign {
+            width: 75%;
+            padding: 15px;
         }
         /* Add Repo to Scarlet Button */
         .button-repo-scarlet {
             background-color: #CD5C5C;
-            width: 75%; /* Set the same width as buttons above */
-            padding: 15px;
-            margin-top: 15px; /* Reduce margin to bring it closer to the button above */
         }
         /* Add Repo to E-Sign Button */
         .button-repo-esign {
             background-color: #87CEFA;
-            width: 75%; /* Set the same width as buttons above */
-            padding: 15px;
-            margin-top: 10px; /* Reduce margin to bring it closer to the button above */
         }
         /* Style for warning text */
         .warning {
             font-size: 18px;
             color: white;
-            margin-top: 20px;
         }
         /* Style for the yellow warning symbol */
         .warning-symbol {
             color: yellow;
+        }
+        /* Move buttons and warning to the bottom */
+        .bottom-section {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -95,14 +103,18 @@
             <img src="https://s5.uupload.ir/files/ipafiledl98/Sign/IMG_7718.png" alt="E-Sign Icon" class="icon">
         </div>
 
-        <!-- Add Repo to Scarlet button -->
-        <button class="button button-repo-scarlet" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
-        
-        <!-- Add Repo to E-Sign button -->
-        <button class="button button-repo-esign" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
+        <!-- Bottom section (Repo buttons and warning) -->
+        <div class="bottom-section">
+            <!-- Add Repo to Scarlet button -->
+            <button class="button button-repo-scarlet" onclick="window.location.href='PLACE_SCARLET_REPO_LINK_HERE';">افزودن Repo به اسکارلت</button>
+            
+            <!-- Add Repo to E-Sign button -->
+            <button class="button button-repo-esign" onclick="window.location.href='PLACE_ESIGN_REPO_LINK_HERE';">افزودن Repo به ایساین</button>
 
-        <!-- Warning text -->
-        <p class="warning"><span class="warning-symbol">⚠</span> رپو ها را برای دیگران ارسال نکنید و بدون فیلترشکن از رپو ها استفاده کنید</p>
+            <!-- Warning text -->
+            <p class="warning"><span class="warning-symbol">⚠</span> رپو ها را برای دیگران ارسال نکنید و بدون فیلترشکن از رپو ها استفاده کنید</p>
+        </div>
+
     </div>
 
 </body>
