@@ -8,12 +8,17 @@
         html, body {
             overflow: hidden;
             height: 100%; /* جلوگیری از اسکرول در صفحه */
+            margin: 0;
         }
         body {
             background-color: #000;
             color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* استفاده از تمام ارتفاع صفحه */
+            margin: 0;
         }
         .container {
             max-width: 400px;
@@ -72,8 +77,8 @@
         }
         .warning-symbol {
             color: yellow;
-            float: right; /* انتقال علامت هشدار به سمت راست */
-            margin-left: 10px; /* فاصله بین علامت و متن */
+            float: right;
+            margin-left: 4px; /* کاهش فاصله بین علامت و متن */
         }
     </style>
 </head>
