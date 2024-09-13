@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scarlet Shop</title>
+
+    <script>
+    if (window.innerWidth < 400) {
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'width=device-width, initial-scale=0.7');
+    }
+   </script>
+
     <style>
         body {
             background-color: #000;
