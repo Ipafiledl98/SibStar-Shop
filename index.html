@@ -70,7 +70,7 @@
 
         /* استایل برای مودال */
         #myModal {
-            display: none;
+            display: none; /* مودال به طور پیش‌فرض مخفی است */
             position: fixed;
             z-index: 1;
             left: 0;
@@ -112,17 +112,17 @@
 <body>
 
     <div class="container">
-        <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Shop%20design.png" alt="Scarlet Logo" class="logo">
+        <img src="https://s5.uupload.ir/files/ipafiledl98/Shop%20design.png" alt="Scarlet Logo" class="logo">
         <h1>SibStar Shop</h1>
 
         <div class="icon-container">
             <button class="button button-repo-scarlet" id="scarletRepoBtn">به اسکارلت Repo افزودن</button>
-            <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7717.png" alt="Scarlet Icon" class="icon">
+            <img src="https://s5.uupload.ir/files/ipafiledl98/Sign/IMG_7717.png" alt="Scarlet Icon" class="icon">
         </div>
 
         <div class="icon-container">
             <button class="button button-repo-esign" id="esignRepoBtn">به ایساین Repo افزودن</button>
-            <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7718.png" alt="E-Sign Icon" class="icon">
+            <img src="https://s5.uupload.ir/files/ipafiledl98/Sign/IMG_7718.png" alt="E-Sign Icon" class="icon">
         </div>
 
         <button class="button button-telegram" onclick="window.location.href='https://t.me/RepoApps';">RepoApps کانال</button>
@@ -131,7 +131,7 @@
     </div>
 
     <!-- مودال -->
-    <div id="myModal" style="display: flex;">
+    <div id="myModal">
         <div class="modal-content">
             <p><strong>:لطفاً توجه کنید ⚠️</strong></p>
             <p><strong>این رپو را برای دیگران ارسال نکنید</strong></p>
@@ -146,7 +146,7 @@
             document.getElementById("myModal").style.display = "flex";
             // ذخیره لینک مربوط به Repo Scarlet برای بعد از تایید
             document.getElementById("confirmBtn").onclick = function() {
-                window.location.href = "scarlet://repo=https://viprepo1.github.io/RepoApps/scarlet.json";
+                window.location.href = "scarlet://addsource?url=https://viprepo1.github.io/RepoApps/Scarlet.json";
             };
         };
 
