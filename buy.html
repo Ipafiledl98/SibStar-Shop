@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرید اشتراک</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.8; /* فاصله خطوط بیشتر */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff; /* سفید */
+        }
+
+        .price {
+            font-size: 18px; /* اندازه مناسب */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 12px 0; /* فاصله بین خطوط بیشتر */
+            font-size: 16px; /* کمی بزرگ‌تر */
+        }
+
+        .agreement {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .agreement input {
+            margin-left: 10px;
+            accent-color: #4caf50; /* سبز */
+        }
+
+        .error {
+            color: #ff0000; /* قرمز */
+            font-size: 18px; /* اندازه بزرگ‌تر */
+            font-weight: bold;
+            margin-left: 10px; /* فاصله از متن */
+            display: none;
+        }
+
+        .buy-button {
+            display: block;
+            width: 150px;
+            background-color: #2196f3; /* آبی */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 20px; /* لبه‌های گرد */
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px auto 0;
+            text-decoration: none;
+        }
+
+        .buy-button:hover {
+            background-color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>خرید اشتراک عادی</h1>
+        <div class="price">قیمت اشتراک: ۵۷۴,۰۰۰ تومان (۳۶۰ روز)</div>
+        <ul>
+            <li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
+            <li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
+            <li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است. شما می‌توانید هر فایل IPA را به‌راحتی و بدون نیاز به لپ‌تاپ نصب کنید، درحالی‌که استورهای ایرانی فقط برنامه‌های همان استور را می‌توانید نصب کنید.</li>
+            <li>🔸 قیمت اشتراک در ربات ما ارزان‌تر از استورهای ایرانی است.</li>
+            <li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد و در صورت ریووک شدن، باید دوباره اشتراک تهیه کنید. هرچند تا به حال این اتفاق نیفتاده است.</li>
+            <li>🔸 هر اشتراک فقط برای یک دستگاه قابل استفاده است.</li>
+            <li>🔸 طبق قانون جدید اپل، پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد (غیر از اشتراک فوری).</li>
+        </ul>
+        <div class="agreement">
+            <span class="error" id="error">*</span>
+            <input type="checkbox" id="agreement" />
+            <label for="agreement">با قوانین موافقم</label>
+        </div>
+        <a href="#" class="buy-button" id="buyButton">خرید اشتراک</a>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('agreement');
+        const buyButton = document.getElementById('buyButton');
+        const error = document.getElementById('error');
+
+        buyButton.addEventListener('click', (event) => {
+            if (!checkbox.checked) {
+                event.preventDefault();
+                error.style.display = "inline"; // نمایش * قرمز
+            } else {
+                error.style.display = "none"; // پنهان کردن * قرمز
+
+                // هدایت به لینک مقصد
+                window.location.href = "https://your-link-here.com"; // لینک مورد نظر خود را اینجا وارد کنید
+            }
+        });
+    </script>
+</body>
+</html>
