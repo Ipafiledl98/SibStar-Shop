@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             line-height: 1.8; /* فاصله خطوط بیشتر */
             margin: 0;
-            padding: 0;
+            padding: 0 0 60px 0; /* فضای بیشتر پایین صفحه */
             display: flex;
             justify-content: center;
             align-items: flex-start; /* شروع محتوا از بالا */
@@ -111,7 +111,11 @@
         <a href="#" class="buy-button" id="buyButton">خرید اشتراک</a>
     </div>
 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        Telegram.WebApp.expand(); // افزایش ارتفاع
+        Telegram.WebApp.setHeaderColor("bg_color"); // تنظیم رنگ هدر
+
         const checkbox = document.getElementById('agreement');
         const buyButton = document.getElementById('buyButton');
         const error = document.getElementById('error');
