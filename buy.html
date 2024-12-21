@@ -108,14 +108,11 @@
             <input type="checkbox" id="agreement" />
             <label for="agreement">با قوانین موافقم</label>
         </div>
-        <a href="#" class="buy-button" id="buyButton">خرید اشتراک</a>
+        <button class="buy-button" id="buyButton">خرید اشتراک</button>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        Telegram.WebApp.expand(); // افزایش ارتفاع
-        Telegram.WebApp.setHeaderColor("bg_color"); // تنظیم رنگ هدر
-
         const checkbox = document.getElementById('agreement');
         const buyButton = document.getElementById('buyButton');
         const error = document.getElementById('error');
@@ -127,8 +124,11 @@
             } else {
                 error.style.display = "none"; // پنهان کردن * قرمز
 
-                // هدایت به لینک مقصد
-                window.location.href = "https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675"; // لینک مورد نظر خود را اینجا وارد کنید
+                // باز کردن لینک دکمه ربات
+                window.open("https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675", "_blank");
+
+                // بستن MiniApp
+                Telegram.WebApp.close();
             }
         });
     </script>
