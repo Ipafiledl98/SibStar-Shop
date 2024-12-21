@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خرید اشتراک</title>
     <style>
+        /* استایل پیش‌فرض برای تم تیره */
         body {
             background-color: #121212;
             color: #ffffff;
             font-family: Arial, sans-serif;
-            line-height: 1.8; /* فاصله خطوط بیشتر */
+            line-height: 1.8;
             margin: 0;
-            padding: 0 0 60px 0; /* فضای بیشتر پایین صفحه */
+            padding: 0 0 60px 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* شروع محتوا از بالا */
+            align-items: flex-start;
             min-height: 100vh;
         }
 
@@ -24,17 +25,17 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            margin: 20px 0; /* فاصله در بالا و پایین */
+            margin: 20px 0;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 20px;
-            color: #ffffff; /* سفید */
+            color: #ffffff;
         }
 
         .price {
-            font-size: 18px; /* اندازه مناسب */
+            font-size: 18px;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
@@ -46,8 +47,8 @@
         }
 
         ul li {
-            margin: 12px 0; /* فاصله بین خطوط بیشتر */
-            font-size: 16px; /* کمی بزرگ‌تر */
+            margin: 12px 0;
+            font-size: 16px;
         }
 
         .agreement {
@@ -59,34 +60,67 @@
 
         .agreement input {
             margin-left: 10px;
-            accent-color: #4caf50; /* سبز */
+            accent-color: #4caf50;
         }
 
         .error {
-            color: #ff0000; /* قرمز */
-            font-size: 18px; /* اندازه بزرگ‌تر */
+            color: #ff0000;
+            font-size: 18px;
             font-weight: bold;
-            margin-left: 10px; /* فاصله از متن */
+            margin-left: 10px;
             display: none;
         }
 
         .buy-button {
             display: block;
             width: 170px;
-            background-color: #2196f3; /* آبی */
+            background-color: #2196f3;
             color: #ffffff;
             text-align: center;
             padding: 13px;
             border: none;
-            border-radius: 15px; /* لبه‌های گرد */
+            border-radius: 15px;
             cursor: pointer;
             font-size: 16px;
-            margin: 31px auto 50px; /* فاصله بیشتر در پایین */
+            margin: 31px auto 50px;
             text-decoration: none;
         }
 
         .buy-button:hover {
             background-color: #1976d2;
+        }
+
+        /* استایل برای تم روشن */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .container {
+                background-color: #f0f0f0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                color: #000000;
+            }
+
+            .price {
+                color: #000000;
+            }
+
+            .error {
+                color: #ff0000;
+            }
+
+            .buy-button {
+                background-color: #2196f3;
+            }
+
+            .buy-button:hover {
+                background-color: #1976d2;
+            }
         }
     </style>
 </head>
