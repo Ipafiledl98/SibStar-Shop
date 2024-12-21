@@ -11,15 +11,15 @@
             font-family: Arial, sans-serif;
             line-height: 1.8; /* فاصله خطوط بیشتر */
             margin: 0;
-            padding: 0;
+            padding: 0 0 20px 0; /* فاصله در پایین صفحه */
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* تغییر از center به flex-start */
-            min-height: 100%;
+            align-items: flex-start; /* شروع محتوا از بالا */
+            height: auto;
         }
 
         html, body {
-            height: 100%; /* ارتفاع کامل صفحه برای HTML و body */
+            min-height: 100%; /* ارتفاع حداقلی 100% */
         }
 
         .container {
