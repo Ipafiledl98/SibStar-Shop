@@ -7,92 +7,102 @@
 
 <script>
 if (window.screen.width < 400) {
-    var viewport = document.querySelector("meta[name=viewport]");
-    viewport.setAttribute('content', 'width=device-width, initial-scale=0.92');
+var viewport = document.querySelector("meta[name=viewport]");
+viewport.setAttribute('content', 'width=device-width, initial-scale=0.92');
+}
+
+function openLinkInNewTab(url) {
+window.open(url, "_blank");
 }
 </script>
 
 <style>
 body {
-    background-color: #000;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+background-color: #000;
+color: white;
+font-family: Arial, sans-serif;
+text-align: center;
 }
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+max-width: 400px;
+margin: 0 auto;
+padding: 20px;
 }
 .logo {
-    width: 100px;
-    border-radius: 50%;
+width: 100px;
+border-radius: 50%;
 }
 .icon {
-    width: 50px;
-    margin-left: 10px;
-    vertical-align: middle;
+width: 50px;
+margin-left: 10px;
+vertical-align: middle;
 }
 .button {
-    display: inline-block;
-    padding: 15px;
-    margin: 5px 0;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    width: 75%;
+display: inline-block;
+padding: 15px;
+margin: 5px 0;
+color: white;
+font-size: 18px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
 }
 .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
 }
 .button-install-scarlet {
-    background-color: #B22222;
+background-color: #B22222;
+width: calc(75% - 50px - 10px);
 }
 .button-install-esign {
-    background-color: #2395FF;
+background-color: #2395FF;
+width: calc(75% - 50px - 10px);
 }
 .button-repo-scarlet {
-    background-color: #FF3449;
-    margin-top: 60px;
+background-color: #FF3449;
+width: 75%;
+padding: 15px;
+margin-top: 60px;
 }
 .button-repo-esign {
-    background-color: #2CB3FF;
-    margin-top: 7px;
+background-color: #2CB3FF;
+width: 75%;
+padding: 15px;
+margin-top: 7px;
 }
 .button-telegram {
-    background-color: #30A4DA;
-    margin-top: 20px;
+background-color: #30A4DA;
+width: 75%;
+padding: 15px;
+margin-top: 20px;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Shop%20design.png" alt="Scarlet Logo" class="logo">
-    <h1>SibStar Shop</h1>
+<img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Shop%20design.png" alt="Scarlet Logo" class="logo">
+<h1>SibStar Shop</h1>
 
-    <div class="icon-container">
-        <a href="https://ipafiledl98.github.io/Install/scarlet.html" class="button button-install-scarlet" target="_blank">نصب اسکارلت</a>
-        <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7717.png" alt="Scarlet Icon" class="icon">
-    </div>
+<div class="icon-container">
+<button class="button button-install-scarlet" onclick="openLinkInNewTab('https://ipafiledl98.github.io/Install/scarlet.html');">نصب اسکارلت</button>
+<img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7717.png" alt="Scarlet Icon" class="icon">
+</div>
 
-    <div class="icon-container">
-        <a href="https://ipafiledl98.github.io/Install/esign.html" class="button button-install-esign" target="_blank">نصب ایساین</a>
-        <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7718.png" alt="E-Sign Icon" class="icon">
-    </div>
+<div class="icon-container">
+<button class="button button-install-esign" onclick="openLinkInNewTab('https://ipafiledl98.github.io/Install/esign.html');">نصب ایساین</button>
+<img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/IMG_7718.png" alt="E-Sign Icon" class="icon">
+</div>
 
-    <a href="https://ipafiledl98.github.io/Install/RepoScarlet.html" class="button button-repo-scarlet" target="_blank">به اسکارلت Repo افزودن</a>
-    <a href="https://ipafiledl98.github.io/Install/RepoEsign.html" class="button button-repo-esign" target="_blank">به ایساین Repo افزودن</a>
+<button class="button button-repo-scarlet" onclick="openLinkInNewTab('https://ipafiledl98.github.io/Install/RepoScarlet.html');">به اسکارلت Repo افزودن</button>
+<button class="button button-repo-esign" onclick="openLinkInNewTab('https://ipafiledl98.github.io/Install/RepoEsign.html');">به ایساین Repo افزودن</button>
 
-    <a href="https://t.me/RepoApps" class="button button-telegram">RepoApps کانال</a>
+<button class="button button-telegram" onclick="window.location.href='https://t.me/RepoApps';">RepoApps کانال</button>
 
-    <p class="warning"><span class="warning-symbol"></span> </p>
+<p class="warning"><span class="warning-symbol"></span> </p>
 </div>
 
 </body>
