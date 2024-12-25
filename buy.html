@@ -9,9 +9,8 @@
             background-color: #121212;
             color: #ffffff;
             font-family: Arial, sans-serif;
-            line-height: 1.8;
             margin: 0;
-            padding: 0 0 60px 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,16 +23,10 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .dropdown {
-            width: 100%;
             margin-bottom: 20px;
         }
 
@@ -43,13 +36,14 @@
             font-size: 16px;
             border-radius: 10px;
             border: none;
-            background-color: #2196f3;
+            background-color: #333;
             color: #ffffff;
+            appearance: none;
             cursor: pointer;
         }
 
         select:hover {
-            background-color: #1976d2;
+            background-color: #444;
         }
 
         .hidden {
@@ -104,18 +98,67 @@
         .buy-button:hover {
             background-color: #1976d2;
         }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #666;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .container {
+                background-color: #f0f0f0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            select {
+                background-color: #ddd;
+                color: #000000;
+            }
+
+            .buy-button {
+                background-color: #2196f3;
+            }
+
+            .buy-button:hover {
+                background-color: #1976d2;
+            }
+
+            .back-button {
+                background-color: #888;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="dropdown">
+        <div id="step1">
             <h1>یک گزینه را انتخاب کنید:</h1>
-            <select id="subscriptionSelect">
+            <select id="firstSelect">
                 <option value="default" disabled selected>-- انتخاب کنید --</option>
                 <option value="normal">اشتراک عادی (اشتراک پیشنهادی)</option>
-                <option value="iphoneInstant">🚀 اشتراک فوری (آیفون)</option>
-                <option value="ipadInstant">🚀 اشتراک فوری (آیپد)</option>
+                <option value="instant">🚀 اشتراک فوری</option>
             </select>
+        </div>
+
+        <div id="step2" class="hidden">
+            <h1>دستگاه خود را انتخاب کنید:</h1>
+            <select id="secondSelect">
+                <option value="default" disabled selected>-- انتخاب کنید --</option>
+                <option value="iphone">آیفون</option>
+                <option value="ipad">آیپد</option>
+            </select>
+            <a class="back-button" id="backToStep1">بازگشت</a>
         </div>
 
         <div class="final-page hidden" id="finalPage">
@@ -124,10 +167,11 @@
             <ul>
                 <li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
                 <li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
-                <li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است.</li>
-                <li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد.</li>
+                <li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است. شما می‌توانید هر فایل IPA را به‌راحتی و بدون نیاز به لپ‌تاپ نصب کنید.</li>
+                <li>🔸 قیمت اشتراک در ربات ما ارزان‌تر از استورهای ایرانی است.</li>
+                <li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد و در صورت ریووک شدن، باید دوباره اشتراک تهیه کنید. هرچند تا به حال این اتفاق نیفتاده است.</li>
                 <li>🔸 هر اشتراک فقط برای یک دستگاه قابل استفاده است.</li>
-                <li>🔸 پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد.</li>
+                <li>🔸 طبق قانون جدید اپل، پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد (غیر از اشتراک فوری).</li>
             </ul>
             <div class="agreement">
                 <span class="error" id="error">*</span>
@@ -135,31 +179,51 @@
                 <label for="agreement">با قوانین موافقم</label>
             </div>
             <button class="buy-button" id="buyButton">خرید اشتراک</button>
+            <a class="back-button" id="backToStep2">بازگشت</a>
         </div>
     </div>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        const subscriptionSelect = document.getElementById("subscriptionSelect");
+        const firstSelect = document.getElementById("firstSelect");
+        const secondSelect = document.getElementById("secondSelect");
+        const step1 = document.getElementById("step1");
+        const step2 = document.getElementById("step2");
         const finalPage = document.getElementById("finalPage");
         const finalTitle = document.getElementById("finalTitle");
         const finalPrice = document.getElementById("finalPrice");
         const agreement = document.getElementById("agreement");
         const buyButton = document.getElementById("buyButton");
         const error = document.getElementById("error");
+        const backToStep1 = document.getElementById("backToStep1");
+        const backToStep2 = document.getElementById("backToStep2");
 
         let buyLink = "";
 
-        subscriptionSelect.addEventListener("change", () => {
-            const selectedValue = subscriptionSelect.value;
-
-            if (selectedValue === "normal") {
+        firstSelect.addEventListener("change", () => {
+            if (firstSelect.value === "normal") {
                 setupFinalPage("خرید اشتراک عادی", "586,000 تومان (355 روز)", "https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675");
-            } else if (selectedValue === "iphoneInstant") {
+            } else if (firstSelect.value === "instant") {
+                step1.classList.add("hidden");
+                step2.classList.remove("hidden");
+            }
+        });
+
+        secondSelect.addEventListener("change", () => {
+            if (secondSelect.value === "iphone") {
                 setupFinalPage("خرید اشتراک فوری برای آیفون (۳ ماه گارانتی)", "549,000 تومان", "https://t.me/scarlet_shopbot?start=B_iphone_instant");
-            } else if (selectedValue === "ipadInstant") {
+            } else if (secondSelect.value === "ipad") {
                 setupFinalPage("خرید اشتراک فوری برای آیپد (۳ ماه گارانتی)", "349,000 تومان", "https://t.me/scarlet_shopbot?start=B_ipad_instant");
             }
+        });
+
+        backToStep1.addEventListener("click", () => {
+            step2.classList.add("hidden");
+            step1.classList.remove("hidden");
+        });
+
+        backToStep2.addEventListener("click", () => {
+            finalPage.classList.add("hidden");
+            step2.classList.remove("hidden");
         });
 
         buyButton.addEventListener("click", () => {
@@ -176,6 +240,8 @@
             finalTitle.textContent = title;
             finalPrice.textContent = price;
             buyLink = link;
+            step1.classList.add("hidden");
+            step2.classList.add("hidden");
             finalPage.classList.remove("hidden");
         }
     </script>
