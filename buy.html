@@ -127,7 +127,7 @@ ul li {
 <body>
 <div class="container">
   <h1>خرید اشتراک عادی</h1>
-  <div class="price" id="price">قیمت اشتراک: <span id="priceValue">567,000</span> تومان (<span id="daysValue">341</span> روز)</div>
+  <div class="price" id="price">قیمت اشتراک: <span id="priceValue">566,000</span> تومان (<span id="daysValue">340</span> روز)</div>
   <ul>
     <li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
     <li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
@@ -148,8 +148,8 @@ ul li {
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
   // مقادیر اولیه
-  let days = parseInt(localStorage.getItem('days')) || 341; // تعداد روزها
-  let price = parseInt(localStorage.getItem('price')) || 567000; // قیمت
+  let days = parseInt(localStorage.getItem('days')) || 340; // تعداد روزها
+  let price = parseInt(localStorage.getItem('price')) || 566000; // قیمت
 
   // تابع برای به‌روزرسانی قیمت و تعداد روزها
   function updateValues() {
@@ -165,22 +165,36 @@ ul li {
     document.getElementById('priceValue').textContent = price.toLocaleString();
   }
 
-  // تابع برای محاسبه زمان باقی‌مانده تا نیمه‌شب به وقت تهران
-  function getTimeUntilMidnightTehran() {
-    const now = new Date();
-    const tehranOffset = 3.5 * 60 * 60 * 1000; // افست تهران (۳:۳۰+)
-    const midnight = new Date(now);
-    midnight.setHours(24, 0, 0, 0); // زمان نیمه‌شب
-    const timeUntilMidnight = midnight - now + tehranOffset; // زمان باقی‌مانده تا نیمه‌شب
+  // تابع برای بررسی آیا نیمه‌شب گذشته است یا نه
+  function checkIfMidnightPassed() {
+    const now = new Date(); // زمان فعلی بر اساس UTC
+    const lastUpdate = localStorage.getItem('lastUpdate'); // تاریخ آخرین به‌روزرسانی
 
-    return timeUntilMidnight;
+    // اگر تاریخ آخرین به‌روزرسانی وجود نداشته باشد یا تاریخ تغییر کرده باشد
+    if (!lastUpdate || lastUpdate !== now.toDateString()) {
+      updateValues(); // به‌روزرسانی مقادیر
+      localStorage.setItem('lastUpdate', now.toDateString()); // ذخیره تاریخ آخرین به‌روزرسانی
+    }
   }
 
-  // تنظیم تایمر برای اجرای تابع updateValues هر شب ساعت ۲۴ به وقت تهران
+  // بررسی آیا نیمه‌شب گذشته است یا نه
+  checkIfMidnightPassed();
+
+  // تنظیم تایمر برای اجرای تابع updateValues هر شب ساعت ۲۴ به وقت UTC
+  const now = new Date(); // زمان فعلی بر اساس UTC
+  const midnight = new Date(now);
+  midnight.setHours(24, 0, 0, 0); // زمان نیمه‌شب
+  const timeUntilMidnight = midnight - now; // زمان باقی‌مانده تا نیمه‌شب
+
   setTimeout(() => {
     updateValues(); // اجرای تابع در نیمه‌شب
+    localStorage.setItem('lastUpdate', new Date().toDateString()); // ذخیره تاریخ آخرین به‌روزرسانی
     setInterval(updateValues, 24 * 60 * 60 * 1000); // اجرای تابع هر ۲۴ ساعت
-  }, getTimeUntilMidnightTehran());
+  }, timeUntilMidnight);
+
+  // نمایش مقادیر اولیه در صفحه
+  document.getElementById('daysValue').textContent = days;
+  document.getElementById('priceValue').textContent = price.toLocaleString();
 
   // منطق دکمه خرید
   const checkbox = document.getElementById('agreement');
@@ -201,10 +215,6 @@ ul li {
       Telegram.WebApp.close();
     }
   });
-
-  // نمایش مقادیر اولیه در صفحه
-  document.getElementById('daysValue').textContent = days;
-  document.getElementById('priceValue').textContent = price.toLocaleString();
 </script>
 </body>
 </html>
