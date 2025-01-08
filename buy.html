@@ -7,164 +7,204 @@
 <style>
 /* استایل پیش‌فرض برای تم تیره */
 body {
-background-color: #121212;
-color: #ffffff;
-font-family: Arial, sans-serif;
-line-height: 1.8;
-margin: 0;
-padding: 0 0 60px 0;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-min-height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0 0 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 .container {
-max-width: 600px;
-background-color: #1e1e1e;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-margin: 20px 0;
+  max-width: 600px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px 0;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 20px;
-color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .price {
-font-size: 18px;
-font-weight: bold;
-text-align: center;
-margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 ul {
-list-style-type: none;
-padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 ul li {
-margin: 12px 0;
-font-size: 16px;
+  margin: 12px 0;
+  font-size: 16px;
 }
 
 .agreement {
-display: flex;
-align-items: center;
-margin-top: 20px;
-position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
 }
 
 .agreement input {
-margin-left: 10px;
-accent-color: #4caf50;
+  margin-left: 10px;
+  accent-color: #4caf50;
 }
 
 .error {
-color: #ff0000;
-font-size: 18px;
-font-weight: bold;
-margin-left: 10px;
-display: none;
+  color: #ff0000;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+  display: none;
 }
 
 .buy-button {
-display: block;
-width: 170px;
-background-color: #2196f3;
-color: #ffffff;
-text-align: center;
-padding: 13px;
-border: none;
-border-radius: 15px;
-cursor: pointer;
-font-size: 16px;
-margin: 31px auto 50px;
-text-decoration: none;
+  display: block;
+  width: 170px;
+  background-color: #2196f3;
+  color: #ffffff;
+  text-align: center;
+  padding: 13px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 31px auto 50px;
+  text-decoration: none;
 }
 
 .buy-button:hover {
-background-color: #1976d2;
+  background-color: #1976d2;
 }
 
 /* استایل برای تم روشن */
 @media (prefers-color-scheme: light) {
-body {
-background-color: #ffffff;
-color: #000000;
-}
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
 
-.container {
-background-color: #f0f0f0;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+  .container {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
-h1 {
-color: #000000;
-}
+  h1 {
+    color: #000000;
+  }
 
-.price {
-color: #000000;
-}
+  .price {
+    color: #000000;
+  }
 
-.error {
-color: #ff0000;
-}
+  .error {
+    color: #ff0000;
+  }
 
-.buy-button {
-background-color: #2196f3;
-}
+  .buy-button {
+    background-color: #2196f3;
+  }
 
-.buy-button:hover {
-background-color: #1976d2;
-}
+  .buy-button:hover {
+    background-color: #1976d2;
+  }
 }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>خرید اشتراک عادی</h1>
-<div class="price">قیمت اشتراک: 567,000 تومان (341 روز)</div>
-<ul>
-<li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
-<li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
-<li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است. شما می‌توانید هر فایل IPA را به‌راحتی و بدون نیاز به لپ‌تاپ نصب کنید، درحالی‌که استورهای ایرانی فقط برنامه‌های همان استور را می‌توانید نصب کنید.</li>
-<li>🔸 قیمت اشتراک در ربات ما ارزان‌تر از استورهای ایرانی است.</li>
-<li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد و در صورت ریووک شدن، باید دوباره اشتراک تهیه کنید. هرچند تا به حال این اتفاق نیفتاده است.</li>
-<li>🔸 هر اشتراک فقط برای یک دستگاه قابل استفاده است.</li>
-<li>🔸 طبق قانون جدید اپل، پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد (غیر از اشتراک فوری).</li>
-</ul>
-<div class="agreement">
-<span class="error" id="error">*</span>
-<input type="checkbox" id="agreement" />
-<label for="agreement">با قوانین موافقم</label>
-</div>
-<button class="buy-button" id="buyButton">خرید اشتراک</button>
+  <h1>خرید اشتراک عادی</h1>
+  <div class="price" id="price">قیمت اشتراک: <span id="priceValue">567,000</span> تومان (<span id="daysValue">341</span> روز)</div>
+  <ul>
+    <li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
+    <li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
+    <li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است. شما می‌توانید هر فایل IPA را به‌راحتی و بدون نیاز به لپ‌تاپ نصب کنید، درحالی‌که استورهای ایرانی فقط برنامه‌های همان استور را می‌توانید نصب کنید.</li>
+    <li>🔸 قیمت اشتراک در ربات ما ارزان‌تر از استورهای ایرانی است.</li>
+    <li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد و در صورت ریووک شدن، باید دوباره اشتراک تهیه کنید. هرچند تا به حال این اتفاق نیفتاده است.</li>
+    <li>🔸 هر اشتراک فقط برای یک دستگاه قابل استفاده است.</li>
+    <li>🔸 طبق قانون جدید اپل، پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد (غیر از اشتراک فوری).</li>
+  </ul>
+  <div class="agreement">
+    <span class="error" id="error">*</span>
+    <input type="checkbox" id="agreement" />
+    <label for="agreement">با قوانین موافقم</label>
+  </div>
+  <button class="buy-button" id="buyButton">خرید اشتراک</button>
 </div>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-const checkbox = document.getElementById('agreement');
-const buyButton = document.getElementById('buyButton');
-const error = document.getElementById('error');
+  // مقادیر اولیه
+  let days = parseInt(localStorage.getItem('days')) || 341; // تعداد روزها
+  let price = parseInt(localStorage.getItem('price')) || 567000; // قیمت
 
-buyButton.addEventListener('click', (event) => {
-if (!checkbox.checked) {
-event.preventDefault();
-error.style.display = "inline"; // نمایش * قرمز
-} else {
-error.style.display = "none"; // پنهان کردن * قرمز
+  // تابع برای به‌روزرسانی قیمت و تعداد روزها
+  function updateValues() {
+    days -= 1; // کاهش تعداد روزها
+    price -= 1300; // کاهش قیمت
 
-// باز کردن لینک دکمه ربات
-window.open("https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675", "_blank");
+    // ذخیره مقادیر جدید در localStorage
+    localStorage.setItem('days', days);
+    localStorage.setItem('price', price);
 
-// بستن MiniApp
-Telegram.WebApp.close();
-}
-});
+    // نمایش مقادیر جدید در صفحه
+    document.getElementById('daysValue').textContent = days;
+    document.getElementById('priceValue').textContent = price.toLocaleString();
+  }
+
+  // تابع برای محاسبه زمان باقی‌مانده تا نیمه‌شب به وقت تهران
+  function getTimeUntilMidnightTehran() {
+    const now = new Date();
+    const tehranOffset = 3.5 * 60 * 60 * 1000; // افست تهران (۳:۳۰+)
+    const midnight = new Date(now);
+    midnight.setHours(24, 0, 0, 0); // زمان نیمه‌شب
+    const timeUntilMidnight = midnight - now + tehranOffset; // زمان باقی‌مانده تا نیمه‌شب
+
+    return timeUntilMidnight;
+  }
+
+  // تنظیم تایمر برای اجرای تابع updateValues هر شب ساعت ۲۴ به وقت تهران
+  setTimeout(() => {
+    updateValues(); // اجرای تابع در نیمه‌شب
+    setInterval(updateValues, 24 * 60 * 60 * 1000); // اجرای تابع هر ۲۴ ساعت
+  }, getTimeUntilMidnightTehran());
+
+  // منطق دکمه خرید
+  const checkbox = document.getElementById('agreement');
+  const buyButton = document.getElementById('buyButton');
+  const error = document.getElementById('error');
+
+  buyButton.addEventListener('click', (event) => {
+    if (!checkbox.checked) {
+      event.preventDefault();
+      error.style.display = "inline"; // نمایش * قرمز
+    } else {
+      error.style.display = "none"; // پنهان کردن * قرمز
+
+      // باز کردن لینک دکمه ربات
+      window.open("https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675", "_blank");
+
+      // بستن MiniApp
+      Telegram.WebApp.close();
+    }
+  });
+
+  // نمایش مقادیر اولیه در صفحه
+  document.getElementById('daysValue').textContent = days;
+  document.getElementById('priceValue').textContent = price.toLocaleString();
 </script>
 </body>
 </html>
