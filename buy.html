@@ -1,170 +1,384 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>خرید اشتراک</title>
-<style>
-/* استایل پیش‌فرض برای تم تیره */
-body {
-background-color: #121212;
-color: #ffffff;
-font-family: Arial, sans-serif;
-line-height: 1.8;
-margin: 0;
-padding: 0 0 60px 0;
-display: flex;
-justify-content: center;
-align-items: flex-start;
-min-height: 100vh;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قوانین خرید اشتراک سیب‌استار</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        /* تنظیمات کلی */
+        :root {
+            --primary-color: #007bff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: white;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+            --icon-color: #6d8bf0;
+            --icon-hover-color: #6c757d;
+            --scrollbar-thumb: #007bff;
+            --scrollbar-track: #f1f1f1;
+        }
 
-.container {
-max-width: 600px;
-background-color: #1e1e1e;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-margin: 20px 0;
-}
+        /* تم دارک */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #1a1a1a;
+                --text-color: #f8f9fa;
+                --card-bg: #2d2d2d;
+                --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                --primary-color: #1e90ff;
+                --success-color: #32cd32;
+                --danger-color: #ff4500;
+                --icon-color: #89c4f4;
+                --icon-hover-color: #adb5bd;
+                --scrollbar-thumb: #1e90ff;
+                --scrollbar-track: #2d2d2d;
+            }
+        }
 
-h1 {
-text-align: center;
-margin-bottom: 20px;
-color: #ffffff;
-}
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazir', sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            overflow-y: auto;
+        }
 
-.price {
-font-size: 18px;
-font-weight: bold;
-text-align: center;
-margin-bottom: 20px;
-}
+        /* استایل‌دهی به اسکرول بار */
+        body::-webkit-scrollbar {
+            width: 12px;
+        }
 
-ul {
-list-style-type: none;
-padding: 0;
-}
+        body::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+            border-radius: 10px;
+        }
 
-ul li {
-margin: 12px 0;
-font-size: 16px;
-}
+        body::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 10px;
+            border: 3px solid var(--scrollbar-track);
+        }
 
-.agreement {
-display: flex;
-align-items: center;
-margin-top: 20px;
-position: relative;
-}
+        body::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
 
-.agreement input {
-margin-left: 10px;
-accent-color: #4caf50;
-}
+        /* نوبار بالای صفحه */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.error {
-color: #ff0000;
-font-size: 18px;
-font-weight: bold;
-margin-left: 10px;
-display: none;
-}
+        .navbar .logo {
+            position: absolute;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.buy-button {
-display: block;
-width: 170px;
-background-color: #2196f3;
-color: #ffffff;
-text-align: center;
-padding: 13px;
-border: none;
-border-radius: 15px;
-cursor: pointer;
-font-size: 16px;
-margin: 31px auto 50px;
-text-decoration: none;
-}
+        .navbar .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
 
-.buy-button:hover {
-background-color: #1976d2;
-}
+        .navbar .content {
+            text-align: center;
+        }
 
-/* استایل برای تم روشن */
-@media (prefers-color-scheme: light) {
-body {
-background-color: #ffffff;
-color: #000000;
-}
+        .navbar h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-.container {
-background-color: #f0f0f0;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+        .navbar .price-info {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+            color: #fff;
+        }
 
-h1 {
-color: #000000;
-}
+        /* محتوای اصلی */
+        .main-content {
+            padding: 100px 20px 120px;
+            max-width: 800px;
+            margin: 0 auto;
+            direction: rtl;
+            text-align: right;
+        }
 
-.price {
-color: #000000;
-}
+        /* استایل قوانین */
+        .rule-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            direction: rtl;
+            text-align: right;
+            display: flex;
+            align-items: flex-start; /* ایکون‌ها در بالای متن */
+        }
 
-.error {
-color: #ff0000;
-}
+        .rule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-.buy-button {
-background-color: #2196f3;
-}
+        .rule-item .icon {
+            font-size: 24px;
+            color: var(--icon-color);
+            margin-left: 15px;
+            flex-shrink: 0;
+            margin-top: 5px; /* تنظیم فاصله عمودی */
+        }
 
-.buy-button:hover {
-background-color: #1976d2;
-}
-}
-</style>
+        .rule-item strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .rule-item p {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        /* فوتر ثابت */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            padding: 15px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .form-check {
+            margin-bottom: 15px;
+        }
+
+        .form-check-input {
+            transition: transform 0.2s ease;
+        }
+
+        .form-check-input:checked {
+            transform: scale(1.2);
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .form-check-input:not(:checked) {
+            border-color: var(--danger-color);
+        }
+
+        .form-check-label {
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        /* دکمه خرید اشتراک */
+        .btn-success {
+            background: linear-gradient(135deg, #4a6cf7, #3b5bdb); /* اینجا کد رنگ دکمه رو اگه میخواید عوض کنید میتونید عوض کنید کد رنگ هارو به همین صورت بزارید*/
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            transition: opacity 0.3s ease; /* تغییر به opacity برای جلوه نرم‌تر */
+            width: 100%;
+            color: white;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0.6; /* حالت غیرفعال (کمرنگ) */
+            cursor: not-allowed; /* نشانگر غیرفعال */
+        }
+
+        .btn-success:not(:disabled) {
+            opacity: 1; /* حالت فعال (پررنگ) */
+            cursor: pointer; /* نشانگر فعال */
+        }
+
+        /* تنظیمات موبایل */
+        @media (max-width: 768px) {
+            .navbar h3 {
+                font-size: 18px;
+            }
+
+            .navbar .price-info {
+                font-size: 12px;
+            }
+
+            .navbar .logo {
+                width: 30px;
+                height: 30px;
+                right: 10px;
+            }
+
+            .main-content {
+                padding: 80px 15px 100px;
+            }
+
+            .rule-item {
+                padding: 15px;
+            }
+
+            .rule-item .icon {
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            .rule-item strong {
+                font-size: 16px;
+            }
+
+            .rule-item p {
+                font-size: 12px;
+            }
+
+            .btn-success {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .form-check-label {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>خرید اشتراک عادی</h1>
-<div class="price">قیمت اشتراک: 552,000 تومان (330 روز)</div>
-<ul>
-<li>📍 شما با خرید اشتراک با قوانین زیر موافقت می‌کنید:</li>
-<li>🔸 شما با خرید اشتراک یک Repo اختصاصی نیز برای نصب راحت برنامه‌ها داخل اسکارلت و ایساین دریافت می‌کنید.</li>
-<li>🔸 تفاوت خرید اشتراک از ربات ما با سایر استورهای ایرانی نحوه نصب برنامه‌ها است. شما می‌توانید هر فایل IPA را به‌راحتی و بدون نیاز به لپ‌تاپ نصب کنید، درحالی‌که استورهای ایرانی فقط برنامه‌های همان استور را می‌توانید نصب کنید.</li>
-<li>🔸 قیمت اشتراک در ربات ما ارزان‌تر از استورهای ایرانی است.</li>
-<li>🔸 ریووک شدن اشتراک هر موقع ممکن است اتفاق بیفتد و در صورت ریووک شدن، باید دوباره اشتراک تهیه کنید. هرچند تا به حال این اتفاق نیفتاده است.</li>
-<li>🔸 هر اشتراک فقط برای یک دستگاه قابل استفاده است.</li>
-<li>🔸 طبق قانون جدید اپل، پروسه ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد (غیر از اشتراک فوری).</li>
-</ul>
-<div class="agreement">
-<span class="error" id="error">*</span>
-<input type="checkbox" id="agreement" />
-<label for="agreement">با قوانین موافقم</label>
-</div>
-<button class="buy-button" id="buyButton">خرید اشتراک</button>
-</div>
+    <!-- نوبار بالای صفحه -->
+    <div class="navbar">
+        <!-- لوگو -->
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Update.png" alt="لوگوی سایت">
+        </div>
+        <!-- متن‌ها -->
+        <div class="content">
+            <h3>قوانین خرید اشتراک سیب‌استار</h3>
+            <div class="price-info">قیمت اشتراک عادی:  ۵۵۲ هزار تومان (۳۳۰ روز)</div>
+        </div>
+    </div>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script>
-const checkbox = document.getElementById('agreement');
-const buyButton = document.getElementById('buyButton');
-const error = document.getElementById('error');
+    <!-- محتوای اصلی -->
+    <div class="main-content">
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:star"></iconify-icon>
+            <div>
+                <strong>مزیت خرید اشتراک از سیب‌استار:</strong>
+                <p>تفاوت اصلی در نحوه نصب برنامه‌ها است. با خرید اشتراک از سیب‌استار، می‌توانید هر فایل با فرمت IPA را به راحتی و بدون نیاز به لپ‌تاپ روی دستگاه خود نصب کنید.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:cash"></iconify-icon>
+            <div>
+                <strong>قیمت اشتراک:</strong>
+                <p>قیمت اشتراک در سیب‌استار، با وجود قابلیت نصب برنامه‌های بیشتر، ارزان‌تر از سایر استورهای ایرانی است.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:alert"></iconify-icon>
+            <div>
+                <strong>ریووک شدن (مسدود شدن اشتراک توسط اپل):</strong>
+                <p>ریووک شدن ممکن است در هر زمان اتفاق بیفتد. در صورت ریووک شدن، شما باید مجدداً اشتراک تهیه کنید.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:cellphone"></iconify-icon>
+            <div>
+                <strong>محدودیت دستگاه:</strong>
+                <p>هر اشتراک تنها برای یک دستگاه فعال می‌شود و امکان انتقال آن به دستگاه دیگر وجود ندارد.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:clock"></iconify-icon>
+            <div>
+                <strong>زمان ثبت دستگاه:</strong>
+                <p>طبق قانون جدید اپل، فرآیند ثبت دستگاه ممکن است تا ۷۲ ساعت زمان ببرد.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:backup-restore"></iconify-icon>
+            <div>
+                <strong>دسترسی به داده‌ها پس از اتمام اشتراک:</strong>
+                <p>تضمینی برای دسترسی به داده‌های مربوط به برنامه‌های قبلی پس از اتمام اشتراک وجود ندارد.</p>
+            </div>
+        </div>
+        <div class="rule-item">
+            <iconify-icon class="icon" icon="mdi:alert-circle"></iconify-icon>
+            <div>
+                <strong>تاخیر در فعال‌سازی اشتراک:</strong>
+                <p>در صورتی که دستگاه شما قبلاً در اکانت دیگری ثبت شده باشد، فرآیند فعال‌سازی اشتراک ممکن است تا ۳ هفته زمان ببرد.</p>
+            </div>
+        </div>
+    </div>
 
-buyButton.addEventListener('click', (event) => {
-if (!checkbox.checked) {
-event.preventDefault();
-error.style.display = "inline"; // نمایش * قرمز
-} else {
-error.style.display = "none"; // پنهان کردن * قرمز
+    <!-- فوتر ثابت -->
+    <div class="sticky-footer">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="agreeCheck">
+            <label class="form-check-label" for="agreeCheck">با قوانین موافقم</label>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success btn-lg" id="subscribeBtn" disabled>خرید اشتراک</button>
+        </div>
+    </div>
 
-// باز کردن لینک دکمه ربات
-window.open("https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675", "_blank");
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const agreeCheck = document.getElementById('agreeCheck');
+            const subscribeBtn = document.getElementById('subscribeBtn');
 
-// بستن MiniApp
-Telegram.WebApp.close();
-}
-});
-</script>
+            agreeCheck.addEventListener('change', function () {
+                if (this.checked) {
+                    subscribeBtn.disabled = false;
+                } else {
+                    subscribeBtn.disabled = true;
+                }
+            });
+
+            subscribeBtn.addEventListener('click', function (e) {
+                if (!agreeCheck.checked) {
+                    e.preventDefault();
+                    alert("لطفاً ابتدا قوانین را مطالعه و تیک تأیید را بزنید.");
+                } else {
+                    window.location.href = 'https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
