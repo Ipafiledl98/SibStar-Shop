@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- اضافه کردن SDK تلگرام -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         /* تنظیمات کلی */
         :root {
@@ -284,7 +286,7 @@
     <div class="navbar">
         <!-- لوگو -->
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Update2.png" alt="لوگوی سایت">
+            <img src="https://via.placeholder.com/40" alt="لوگوی سایت">
         </div>
         <!-- متن‌ها -->
         <div class="content">
@@ -357,34 +359,37 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const agreeCheck = document.getElementById('agreeCheck');
-            const subscribeBtn = document.getElementById('subscribeBtn');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const agreeCheck = document.getElementById('agreeCheck');
+        const subscribeBtn = document.getElementById('subscribeBtn');
 
-            agreeCheck.addEventListener('change', function () {
-                if (this.checked) {
-                    subscribeBtn.disabled = false;
-                } else {
-                    subscribeBtn.disabled = true;
-                }
-            });
-
-            subscribeBtn.addEventListener('click', function (e) {
-                if (!agreeCheck.checked) {
-                    e.preventDefault();
-                    alert("لطفاً ابتدا قوانین را مطالعه و تیک تأیید را بزنید.");
-                } else {
-                    // هدایت کاربر به لینک خرید اشتراک
-                    window.location.href = 'https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675';
-
-                    // بستن مینی‌اپ تلگرام
-                    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                        Telegram.WebApp.close();
-                    }
-                }
-            });
+        agreeCheck.addEventListener('change', function () {
+            if (this.checked) {
+                subscribeBtn.disabled = false;
+            } else {
+                subscribeBtn.disabled = true;
+            }
         });
-    </script>
+
+        subscribeBtn.addEventListener('click', function (e) {
+            if (!agreeCheck.checked) {
+                e.preventDefault();
+                alert("لطفاً ابتدا قوانین را مطالعه و تیک تأیید را بزنید.");
+            } else {
+                // هدایت کاربر به لینک خرید اشتراک
+                window.location.href = 'https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675';
+
+                // بررسی وجود WebApp و تلاش برای بستن آن
+                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                    Telegram.WebApp.close();
+                } else {
+                    // نمایش پیام در صورتی که WebApp در دسترس نیست
+                    alert("لینک به تلگرام هدایت شد. لطفاً مینی‌اپ را به صورت دستی ببندید.");
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
