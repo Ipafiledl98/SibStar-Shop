@@ -11,34 +11,34 @@
     <style>
         /* تنظیمات کلی */
         :root {
-            --primary-color: #007bff;
-            --success-color: #28a745;
-            --danger-color: #dc3545;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-            --card-bg: white;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition-speed: 0.3s;
-            --icon-color: #6d8bf0;
-            --icon-hover-color: #6c757d;
-            --scrollbar-thumb: #007bff;
-            --scrollbar-track: #f1f1f1;
+            --primary-color: #007bff; /* رنگ اصلی (آبی) */
+            --success-color: #28a745; /* رنگ موفقیت (سبز) */
+            --danger-color: #dc3545; /* رنگ خطا (قرمز) */
+            --background-color: #f8f9fa; /* رنگ پس‌زمینه */
+            --text-color: #333; /* رنگ متن */
+            --card-bg: white; /* رنگ پس‌زمینه کارت‌ها */
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* سایه کارت‌ها */
+            --transition-speed: 0.3s; /* سرعت انیمیشن‌ها */
+            --icon-color: #6d8bf0; /* رنگ آیکون‌ها */
+            --icon-hover-color: #6c757d; /* رنگ آیکون‌ها هنگام هاور */
+            --scrollbar-thumb: #007bff; /* رنگ اسکرول بار */
+            --scrollbar-track: #f1f1f1; /* رنگ پس‌زمینه اسکرول بار */
         }
 
         /* تم دارک */
         @media (prefers-color-scheme: dark) {
             :root {
-                --background-color: #1a1a1a;
-                --text-color: #f8f9fa;
-                --card-bg: #2d2d2d;
-                --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-                --primary-color: #1e90ff;
-                --success-color: #32cd32;
-                --danger-color: #ff4500;
-                --icon-color: #89c4f4;
-                --icon-hover-color: #adb5bd;
-                --scrollbar-thumb: #1e90ff;
-                --scrollbar-track: #2d2d2d;
+                --background-color: #1a1a1a; /* پس‌زمینه تاریک */
+                --text-color: #f8f9fa; /* متن روشن */
+                --card-bg: #2d2d2d; /* پس‌زمینه کارت‌ها در حالت تاریک */
+                --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* سایه کارت‌ها در حالت تاریک */
+                --primary-color: #1e90ff; /* رنگ اصلی در حالت تاریک */
+                --success-color: #32cd32; /* رنگ موفقیت در حالت تاریک */
+                --danger-color: #ff4500; /* رنگ خطا در حالت تاریک */
+                --icon-color: #89c4f4; /* رنگ آیکون‌ها در حالت تاریک */
+                --icon-hover-color: #adb5bd; /* رنگ آیکون‌ها هنگام هاور در حالت تاریک */
+                --scrollbar-thumb: #1e90ff; /* رنگ اسکرول بار در حالت تاریک */
+                --scrollbar-track: #2d2d2d; /* رنگ پس‌زمینه اسکرول بار در حالت تاریک */
             }
         }
 
@@ -140,12 +140,12 @@
             margin-bottom: 15px;
             background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             direction: rtl;
             text-align: right;
             display: flex;
-            align-items: flex-start; /* ایکون‌ها در بالای متن */
+            align-items: flex-start;
         }
 
         .rule-item:hover {
@@ -158,7 +158,7 @@
             color: var(--icon-color);
             margin-left: 15px;
             flex-shrink: 0;
-            margin-top: 5px; /* تنظیم فاصله عمودی */
+            margin-top: 5px;
         }
 
         .rule-item strong {
@@ -212,23 +212,23 @@
 
         /* دکمه خرید اشتراک */
         .btn-success {
-            background: linear-gradient(135deg, #4a6cf7, #3b5bdb); /* اینجا کد رنگ دکمه رو اگه میخواید عوض کنید میتونید عوض کنید کد رنگ هارو به همین صورت بزارید*/
+            background: linear-gradient(135deg, #4a6cf7, #3b5bdb);
             border: none;
             padding: 12px 24px;
             font-size: 18px;
-            transition: opacity 0.3s ease; /* تغییر به opacity برای جلوه نرم‌تر */
+            transition: opacity 0.3s ease;
             width: 100%;
             color: white;
             border-radius: 12px;
             position: relative;
             overflow: hidden;
-            opacity: 0.6; /* حالت غیرفعال (کمرنگ) */
-            cursor: not-allowed; /* نشانگر غیرفعال */
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .btn-success:not(:disabled) {
-            opacity: 1; /* حالت فعال (پررنگ) */
-            cursor: pointer; /* نشانگر فعال */
+            opacity: 1;
+            cursor: pointer;
         }
 
         /* تنظیمات موبایل */
@@ -289,7 +289,7 @@
         <!-- متن‌ها -->
         <div class="content">
             <h3>قوانین خرید اشتراک سیب‌استار</h3>
-            <div class="price-info">قیمت اشتراک عادی:  ۵۵۲ هزار تومان (۳۳۰ روز)</div>
+            <div class="price-info">قیمت اشتراک عادی: ۵۵۲ هزار تومان (۳۳۰ روز)</div>
         </div>
     </div>
 
@@ -363,11 +363,7 @@
             const subscribeBtn = document.getElementById('subscribeBtn');
 
             agreeCheck.addEventListener('change', function () {
-                if (this.checked) {
-                    subscribeBtn.disabled = false;
-                } else {
-                    subscribeBtn.disabled = true;
-                }
+                subscribeBtn.disabled = !this.checked;
             });
 
             subscribeBtn.addEventListener('click', function (e) {
@@ -375,7 +371,15 @@
                     e.preventDefault();
                     alert("لطفاً ابتدا قوانین را مطالعه و تیک تأیید را بزنید.");
                 } else {
+                    // هدایت کاربر به لینک خرید
                     window.location.href = 'https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675';
+
+                    // بستن مینی‌اپ تلگرام پس از ۱ ثانیه
+                    setTimeout(() => {
+                        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                            Telegram.WebApp.close();
+                        }
+                    }, 1000);
                 }
             });
         });
