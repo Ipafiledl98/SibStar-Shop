@@ -11,34 +11,34 @@
     <style>
         /* تنظیمات کلی */
         :root {
-            --primary-color: #007bff; /* رنگ اصلی (آبی) */
-            --success-color: #28a745; /* رنگ موفقیت (سبز) */
-            --danger-color: #dc3545; /* رنگ خطا (قرمز) */
-            --background-color: #f8f9fa; /* رنگ پس‌زمینه */
-            --text-color: #333; /* رنگ متن */
-            --card-bg: white; /* رنگ پس‌زمینه کارت‌ها */
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* سایه کارت‌ها */
-            --transition-speed: 0.3s; /* سرعت انیمیشن‌ها */
-            --icon-color: #6d8bf0; /* رنگ آیکون‌ها */
-            --icon-hover-color: #6c757d; /* رنگ آیکون‌ها هنگام هاور */
-            --scrollbar-thumb: #007bff; /* رنگ اسکرول بار */
-            --scrollbar-track: #f1f1f1; /* رنگ پس‌زمینه اسکرول بار */
+            --primary-color: #007bff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: white;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+            --icon-color: #6d8bf0;
+            --icon-hover-color: #6c757d;
+            --scrollbar-thumb: #007bff;
+            --scrollbar-track: #f1f1f1;
         }
 
         /* تم دارک */
         @media (prefers-color-scheme: dark) {
             :root {
-                --background-color: #1a1a1a; /* پس‌زمینه تاریک */
-                --text-color: #f8f9fa; /* متن روشن */
-                --card-bg: #2d2d2d; /* پس‌زمینه کارت‌ها در حالت تاریک */
-                --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* سایه کارت‌ها در حالت تاریک */
-                --primary-color: #1e90ff; /* رنگ اصلی در حالت تاریک */
-                --success-color: #32cd32; /* رنگ موفقیت در حالت تاریک */
-                --danger-color: #ff4500; /* رنگ خطا در حالت تاریک */
-                --icon-color: #89c4f4; /* رنگ آیکون‌ها در حالت تاریک */
-                --icon-hover-color: #adb5bd; /* رنگ آیکون‌ها هنگام هاور در حالت تاریک */
-                --scrollbar-thumb: #1e90ff; /* رنگ اسکرول بار در حالت تاریک */
-                --scrollbar-track: #2d2d2d; /* رنگ پس‌زمینه اسکرول بار در حالت تاریک */
+                --background-color: #1a1a1a;
+                --text-color: #f8f9fa;
+                --card-bg: #2d2d2d;
+                --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                --primary-color: #1e90ff;
+                --success-color: #32cd32;
+                --danger-color: #ff4500;
+                --icon-color: #89c4f4;
+                --icon-hover-color: #adb5bd;
+                --scrollbar-thumb: #1e90ff;
+                --scrollbar-track: #2d2d2d;
             }
         }
 
@@ -140,7 +140,7 @@
             margin-bottom: 15px;
             background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             direction: rtl;
             text-align: right;
@@ -284,7 +284,7 @@
     <div class="navbar">
         <!-- لوگو -->
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/ipafiledl98/sibstar-shop/main/images/Update.png" alt="لوگوی سایت">
+            <img src="https://via.placeholder.com/40" alt="لوگوی سایت">
         </div>
         <!-- متن‌ها -->
         <div class="content">
@@ -363,7 +363,11 @@
             const subscribeBtn = document.getElementById('subscribeBtn');
 
             agreeCheck.addEventListener('change', function () {
-                subscribeBtn.disabled = !this.checked;
+                if (this.checked) {
+                    subscribeBtn.disabled = false;
+                } else {
+                    subscribeBtn.disabled = true;
+                }
             });
 
             subscribeBtn.addEventListener('click', function (e) {
@@ -371,15 +375,13 @@
                     e.preventDefault();
                     alert("لطفاً ابتدا قوانین را مطالعه و تیک تأیید را بزنید.");
                 } else {
-                    // هدایت کاربر به لینک خرید
-                    window.location.href = 'https://t.me/scarlet_shopbot?start=B_cb6b8c44523143581c31e1afc6b24675';
+                    // هدایت کاربر به لینک خرید اشتراک
+                    window.location.href = 'https://example.com/subscribe';
 
-                    // بستن مینی‌اپ تلگرام پس از ۱ ثانیه
-                    setTimeout(() => {
-                        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-                            Telegram.WebApp.close();
-                        }
-                    }, 1000);
+                    // بستن مینی‌اپ تلگرام
+                    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                        Telegram.WebApp.close();
+                    }
                 }
             });
         });
