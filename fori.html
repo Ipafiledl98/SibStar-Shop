@@ -63,6 +63,31 @@
         .menu-option:last-child {
             margin-bottom: 0;
         }
+
+        /* حالت دارک */
+        @media (prefers-color-scheme: dark) {
+            body, html {
+                background: #121212;
+                color: #f1f1f1;
+            }
+
+            .menu-container {
+                background: #1e1e1e;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            }
+
+            .menu-container h1 {
+                color: #ffffff;
+            }
+
+            .menu-option {
+                background: linear-gradient(135deg, #3a82ff, #2052e6);
+            }
+
+            .menu-option:hover {
+                box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            }
+        }
     </style>
 </head>
 <body>
