@@ -16,9 +16,9 @@
                 let id = match[0];
                 let apiUrl = `https://app.appleapps.ir/ajax-api/init_ios_app_download/?ID=${id}`;
 
-                // استفاده از CORS Anywhere برای ارسال درخواست GET
-                const corsProxy = "https://cors-anywhere.herokuapp.com/";
-                const finalUrl = corsProxy + apiUrl;
+                // استفاده از پروکسی All Origins
+                const corsProxy = "https://api.allorigins.win/get?url=";
+                const finalUrl = corsProxy + encodeURIComponent(apiUrl);
 
                 // درخواست GET برای دریافت داده‌ها
                 fetch(finalUrl, {
