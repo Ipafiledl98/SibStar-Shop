@@ -16,8 +16,12 @@
                 let id = match[0];
                 let apiUrl = `https://app.appleapps.ir/ajax-api/init_ios_app_download/?ID=${id}`;
 
+                // استفاده از CORS Anywhere برای ارسال درخواست GET
+                const corsProxy = "https://cors-anywhere.herokuapp.com/";
+                const finalUrl = corsProxy + apiUrl;
+
                 // درخواست GET برای دریافت داده‌ها
-                fetch(apiUrl, {
+                fetch(finalUrl, {
                     method: 'GET',
                     headers: {
                         'Cookie': 'wordpress_logged_in_8d6c024494df520c3c554a5fdb6cee64=09031111316%7C1741809955%7CYsGFyuIBHOanyRBjN28cZxjPcWsUputhdm9Igs1PNwE%7Cb0a008311378ad6881e1a0a1d86cf30d144a5f8fa71d9af50b72e271367759ef'
